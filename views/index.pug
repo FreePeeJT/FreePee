@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    div(class="container")
+        div(class="grid")
+            div(class="row")
+                div(id="map" class="col-8 col-md-12")
+                div(class="col-4 col-md-12")
+                    form(action="/api/newspot", method="post" class="form-group")#newSpotForm
+                        label(for="address") Address:
+                        input(type="text", name="address" class="form-control")
+                        label(for="lat") Lat:
+                        input(type="text", name="lat" class="form-control" readonly)
+                        label(for="lng") Lng:
+                        input(type="text", name="lng" class="form-control" readonly)
+                        label(for="description") Description:
+                        textarea(name="description", cols="30", rows="5" class="form-control")
+                        button(type="submit" class="btn btn-primary form-control")
+                            i(class="fa fa-plus" aria-hidden="true")
+
+
+block scripts
+    script(src="/js/maps.js")
+    script(src="/js/main.js")
+    script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCkYHkCmLlEhwbpZcFpEh8aRVAT4MwbmA&callback=initMap")
+    
+
+    
+    

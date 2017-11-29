@@ -1,5 +1,5 @@
 {
-  "name": "get-started-node",
+  "name": "freepee",
   "main": "server.js",
   "description": "An introduction to developing Node.js apps on the Bluemix platform",
   "version": "0.1.1",
@@ -18,8 +18,16 @@
     "body-parser": "^1.17.x",
     "cfenv": "^1.0.x",
     "cloudant": "^1.7.x",
+    "connect-mongo": "^2.0.0",
     "dotenv": "^4.0.0",
-    "express": "^4.15.x"
+    "express": "^4.15.x",
+    "express-session": "^1.15.6",
+    "mongoose": "^4.13.5",
+    "mongoose-find-one-or-create": "^0.2.0",
+    "passport": "^0.4.0",
+    "passport-google-oauth2": "^0.1.6",
+    "path": "^0.12.7",
+    "pug": "^2.0.0-rc.4"
   },
   "author": "IBM Corp",
   "license": "Apache-2.0"

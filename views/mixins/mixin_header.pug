@@ -1,0 +1,20 @@
+//- TODO refactor if checks
+mixin header(user)
+    header
+        nav(class="navbar navbar-dark bg-primary py-1 px-2 " + (user ? "navbar-expand-lg" : "navbar-expand-sm") role="navigation")
+            a(class="navbar-brand my-0 h1" href="/") FreePee
+            button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+                i(class="navbar-toggler-icon")
+            div(class="collapse navbar-collapse" id="navbarSupportedContent")
+                ul(class="navbar-nav mr-auto")
+                    li(class="nav-item")
+                        a(class="nav-link text-light" href="/") Home
+                        if(user)
+                            li(class="nav-item")
+                                a(class="nav-link" href="/logout") LOGOUT
+                        else
+                            li(class="nav-item dropdown")
+                                a(class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Login
+                                div(class="dropdown-menu border-dark" aria-labelledby="navbarDropdown")
+                                    a(class="btn btn-block btn-social btn-google" href='/auth/google') Sign in with Google
+                                        i(class="fa fa-google")

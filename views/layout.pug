@@ -1,0 +1,35 @@
+//-
+    layout.pug variables
+    ********************
+    @title {String} title of current page
+    @header.isAuthenticated {Boolean} shows login/logout button
+
+include ./mixins/mixin_header.pug
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
+        title FreePee - #{title}
+
+        link(rel='stylesheet', href='/font-awesome-4.7.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/css/lib/bootstrap/custom-bootstrap.css')
+        link(rel='stylesheet', href='/css/lib/bootstrap/bootstrap-social-5.1.1.min.css')
+        link(rel='stylesheet', href='/css/style.css')
+
+
+        //- Loads the header from another file
+        +header(user)
+
+        //- Blocks can be owerwritten/appended/prepended by extending this file, more info @ https://pugjs.org/language/inheritance.html
+        block content
+        block footer
+
+        //- Load scripts in this order, else fail.
+        script(src="/js/lib/jquery-3.2.1.min.js")
+        script(src="/js/lib/popper-1.12.6.min.js")
+        script(src="/js/lib/bootstrap-4.min.js")
+
+        //- Our js resources
+        block scripts
