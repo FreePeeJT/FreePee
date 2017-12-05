@@ -25,7 +25,7 @@ const gInterface=(function(){
             $.get("/api/getspots")
             .done(function(data){
                 data.forEach(spot=>{
-                    let content = {title:spot.address,description:spot.description,rating:spot.rating,id:spot._id}
+                    let content = {title:spot.address,description:spot.description,rating:spot.rating/spot.amountOfPeopleRated,id:spot._id}
                     Maps.placeMarker({lat:parseFloat(spot.lat),lng:parseFloat(spot.lng)},false,content)
                 })
 

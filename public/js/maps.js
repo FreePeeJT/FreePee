@@ -5,7 +5,7 @@ const Maps = (function(){
 
     return{
     initMap:function(){
-        let uluru = {lat: 54.5, lng: 4};
+        let uluru = {lat: 52.5065133, lng: 13.1445509};
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 17,
           center: uluru
@@ -49,10 +49,12 @@ deleteMarker:function(){
     }
 },
 sendRating:function(e,t){
-console.log(e);
-$(t).closest('.starsContainer').html(Maps.generateHtmlRating($(t)[0].dataset.number,$(t)[0].dataset.id))
-$.post('/changeRating',function(){
-  
+let id = $(t)[0].dataset.id;
+let number = $(t)[0].dataset.number;
+$(t).closest('.starsContainer').html(Maps.generateHtmlRating(number,id))
+
+$.post('/api/changerating',{spotId:id,givenRating:number}).done(function(data){
+  console.log('rating updated to '+data);
 })
 },
 generateHtmlRating:function(rating,id){

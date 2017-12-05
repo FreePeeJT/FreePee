@@ -5,6 +5,7 @@ const pug = require("pug");
 const Spot = require('../models/spot');
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+const User = require('../models/user');
 
 
 router
@@ -35,9 +36,15 @@ router
     }
    
 })
-.post('/upvote',function(req,res){
-    console.log(req.body);
-});
+
+.post('/changerating',function(req,res){
+    User.findById(req.user.uid).then(user=>{
+        let task = user.updateRating(req.body.spotId,req.body.givenRating);
+        res.send(task);
+        })
+    
+
+})
 
 
 module.exports = router;
