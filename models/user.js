@@ -5,7 +5,8 @@ const findOneOrCreate = require('mongoose-find-one-or-create');
 
 const UserSchema = Schema({
     email:{type:String,required:true},
-    googleId:Number
+    googleId:Number,
+    ratedSpots:[{type:String}]
 });
 
 UserSchema.plugin(findOneOrCreate);

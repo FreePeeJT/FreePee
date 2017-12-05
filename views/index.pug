@@ -4,8 +4,8 @@ block content
     div(class="container")
         div(class="grid")
             div(class="row")
-                div(id="map" class="col-8 col-md-12")
-                div(class="col-4 col-md-12")
+                div(id="map" class="col-12 col-md-8")
+                div(class="col-12 col-md-4")
                     form(action="/api/newspot", method="post" class="form-group")#newSpotForm
                         label(for="address") Address:
                         input(type="text", name="address" class="form-control")
@@ -15,7 +15,7 @@ block content
                         input(type="text", name="lng" class="form-control" readonly)
                         label(for="description") Description:
                         textarea(name="description", cols="30", rows="5" class="form-control")
-                        button(type="submit" class="btn btn-primary form-control")
+                        button(type="submit" class="btn btn-warning form-control")
                             i(class="fa fa-plus" aria-hidden="true")
 
 

@@ -6,10 +6,12 @@ const gInterface=(function(){
         bindEvents:function(){
             google.maps.event.addListener(map, 'click', function(event) {
                 var pos = {lat:0,lng:0};
-                pos.lat =event.latLng.lat();
-                pos.lng =event.latLng.lng();
+                pos.lat =parseFloat(event.latLng.lat());
+                pos.lng =parseFloat(event.latLng.lng());
                 Maps.deleteMarker();
-                Maps.placeMarker(pos,true);
+                let content={title:'',
+            description:'new marker'}
+                Maps.placeMarker(pos,true,content);
                 $('#newSpotForm input[name=lat]').val(pos.lat);
                 $('#newSpotForm input[name=lng]').val(pos.lng);
              });
@@ -23,7 +25,8 @@ const gInterface=(function(){
             $.get("/api/getspots")
             .done(function(data){
                 data.forEach(spot=>{
-                    Maps.placeMarker({lat:spot.lat,lng:spot.lng},false)
+                    let content = {title:spot.address,description:spot.description,rating:spot.rating,id:spot._id}
+                    Maps.placeMarker({lat:parseFloat(spot.lat),lng:parseFloat(spot.lng)},false,content)
                 })
 
                 

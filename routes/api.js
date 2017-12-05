@@ -35,6 +35,9 @@ router
     }
    
 })
+.post('/upvote',function(req,res){
+    console.log(req.body);
+});
 
 
 module.exports = router;
